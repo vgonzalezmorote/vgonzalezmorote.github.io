@@ -2,37 +2,44 @@
   --bg: #0b0b0b;
   --fg: #e9e9e9;
   --muted: #b9b9b9;
-  --accent: #15b39a; /* verde/azulado */
-  --max: 980px;
+  --accent: #15b39a;
+  --max: 860px;
 }
 
 *{ box-sizing: border-box; }
 html,body{ height: 100%; }
+
 body{
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.45;          /* antes 1.6 */
-  font-size: 15px;            /* NUEVO: controla el tamaño general */
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 a{ color: var(--accent); text-decoration: none; }
 a:hover{ text-decoration: underline; }
+
+/* Layout */
 .wrap{
-  max-width: 860px;       /* más compacto, como Joan */
+  max-width: var(--max);
   margin: 0 auto;
-  padding: 28px 18px;
+  padding: 58px 18px 36px;   /* ↓ empuja todo hacia abajo */
   display: flex;
-  gap: 56px;              /* separación parecida */
+  gap: 56px;
   align-items: flex-start;
 }
 
-/* Sidebar */
+/* Sidebar (izquierda) */
 .side{
-  width: 230px;
-  flex: 0 0 230px;
-  padding-top: 18px;      /* baja un poco el bloque */
+  width: 240px;
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centrado */
+  text-align: center;        /* centrado */
+  padding-top: 18px;         /* ↓ baja un poco más el bloque */
 }
 
 .avatar{
@@ -41,32 +48,55 @@ a:hover{ text-decoration: underline; }
   border-radius: 999px;
   object-fit: cover;
   border: 2px solid rgba(21,179,154,.35);
-  margin-bottom: 12px;
+  margin-bottom: 14px;       /* espacio bajo la foto */
 }
 
+/* Nombre */
 .name{
-  margin: 8px 0 10px;
-  font-size: 28px;        /* ↓ clave: más pequeño */
-  line-height: 1.05;      /* líneas más compactas */
+  margin: 10px 0 18px;       /* ↑ más distancia con el rol */
+  font-size: 18px;           /* pedido */
+  line-height: 1.08;
   font-weight: 700;
   color: var(--accent);
 }
 
-/* Texto lateral un pelín más fino */
-.role, .org{
-  font-size: 14px;
-  line-height: 1.45;
+/* Rol / afiliación */
+.role{
+  margin: 0 0 2px;           /* ↓ menos distancia con org */
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.org{
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 .email{
+  margin-top: 2px;
   font-size: 13px;
+  color: var(--muted);
 }
 
-/* Content */
+/* Iconos */
+.icons{
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+}
+.icons a{
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* Content (derecha) */
 .content{
   flex: 1;
-  padding-top: 6px;
-  max-width: 560px;       /* columna definida */
+  padding-top: 10px;         /* ↓ baja un poco el About también */
+  max-width: 560px;
 }
 
 .section-title{
@@ -82,19 +112,18 @@ a:hover{ text-decoration: underline; }
   line-height: 1.55;
 }
 
-
-
-.section-title{
-  margin: 0 0 12px;
-  color: var(--accent);
-  font-size: 26px;            /* antes 28 */
-  font-weight: 700;
-}
-
-
 /* Responsive */
 @media (max-width: 860px){
-  .wrap{ flex-direction: column; gap: 24px; }
-  .side{ width: auto; flex: none; }
+  .wrap{
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 38px;
+  }
+  .side{
+    width: auto;
+    flex: none;
+  }
+  .content{
+    max-width: 100%;
+  }
 }
-
