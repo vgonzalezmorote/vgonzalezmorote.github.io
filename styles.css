@@ -13,7 +13,8 @@ body{
   background: var(--bg);
   color: var(--fg);
   font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.6;
+  line-height: 1.45;          /* antes 1.6 */
+  font-size: 15px;            /* NUEVO: controla el tamaño general */
 }
 
 a{ color: var(--accent); text-decoration: none; }
@@ -48,7 +49,7 @@ a:hover{ text-decoration: underline; }
 
 .name{
   margin: 18px 0 6px;
-  font-size: 34px;
+  font-size: 32px;            /* antes 34 */
   font-weight: 700;
   color: var(--accent);
 }
@@ -79,14 +80,23 @@ a:hover{ text-decoration: underline; }
 .content{
   flex: 1;
   padding-top: 14px;
+  max-width: 620px;           /* NUEVO: se parece más al “bloque” de Joan */ /*.content{ max-width: 580px; }
 }
 
-.section-title{
+.content p{
   margin: 0 0 14px;
+  font-size: 15px;            /* consistente con Joan */
+  line-height: 1.55;          /* un poco más apretado */
+}
+
+
+.section-title{
+  margin: 0 0 12px;
   color: var(--accent);
-  font-size: 28px;
+  font-size: 26px;            /* antes 28 */
   font-weight: 700;
 }
+
 
 /* Responsive */
 @media (max-width: 860px){
